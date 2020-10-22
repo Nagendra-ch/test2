@@ -10,7 +10,6 @@ resource "aws_instance" "firstdemo" {
   instance_type               = "t2.micro"
   #subnet_id                   = aws_subnet.public_subnet_1.id
   associate_public_ip_address = true
-}
   provisioner "remote-exec" {
     inline = [
       "sudo yum install python3 -y",
@@ -26,3 +25,4 @@ resource "aws_instance" "firstdemo" {
       private_key = var.keyfile
     }
   }
+}
