@@ -15,8 +15,8 @@ resource "aws_instance" "firstdemo" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo yum install python3 -y",
-      "sudo yum install ansible -y",
+      "sudo yum -y install python3-pip",
+      "sudo pip3 install ansible --user"
       "sudo yum install git -y",
       "git clone https://github.com/Nagendra-ch/test2.git /tmp/ans",
       "sleep 60; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook /tmp/ans/ngnixplay.yml"
