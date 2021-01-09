@@ -7,7 +7,8 @@ node {
    }
    stage('Docker image')
    {
-      docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+      // docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') 
+      withDockerRegistry([credentialsId: 'DockerHub', url: "https://registry.hub.docker.com"]) {
 
         def customImage = docker.build("my-image:${env.BUILD_ID}")
 
